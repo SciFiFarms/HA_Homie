@@ -107,7 +107,7 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType):
     async def setup_device_node_as_platform(entity_name: str, node: HomieNode, platform: str):
         hass.data[KEY_HOMIE_ALREADY_DISCOVERED][entity_name] = node
         discovery_info = {KEY_HOMIE_ENTITY_NAME: entity_name}
-        await async_load_platform(hass, platform, DOMAIN, discovery_info)
+        await async_load_platform(hass, platform, DOMAIN, discovery_info, conf)
 
     await async_start()
     return True
